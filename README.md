@@ -1,0 +1,1 @@
+# Local-Maximal-Occurrence-for-Person-Re-Identification-LOMO-

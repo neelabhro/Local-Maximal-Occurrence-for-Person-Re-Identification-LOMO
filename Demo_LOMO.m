@@ -1,5 +1,10 @@
+%Neelabhro Roy
+%IIIT, Delhi
+
 %% This is a demo for the LOMO feature extraction
-clear; clc;
+
+clear;
+clc;
 close all;
 
 imgDir = 'PRID450S/cam_a/';
@@ -18,10 +23,11 @@ for i = 1 : n
     info = imfinfo([imgDir, list(i).name]);
     images = zeros(info.Height, info.Width, 3, n, 'uint8');
     images(:,:,:,i) = imread([imgDir, list(i).name]);
+    images1(:,:,:,i) = imresize(images(:,:,:,i),[128 48]);
 end
 
 %% extract features. Run with a set of images is usually faster than that one by one, but requires more memory.
-descriptors = LOMO(images);
+descriptors450ScamA = LOMO(images1);
 
 %% if you need to set different parameters other than the defaults, set them accordingly
 %{
